@@ -42,6 +42,37 @@ public class University {
         }
     }
 
+    public class Professor {
+         String professorId;
+         String name;
+         String department;
+         int yearsOfExperience;
+         boolean isTenured;
+
+        public Professor(String name, String department, int yearsOfExperience, boolean isTenured) {
+            this.professorId = UUID.randomUUID().toString().substring(0, 8);
+            this.name = name;
+            this.department = department;
+            this.yearsOfExperience = yearsOfExperience;
+            this.isTenured = isTenured;
+            System.out.println("Professor instance created. Professor ID: " + this.professorId);
+        }
+
+        public void conductResearch() {
+            System.out.println(name + " is conducting research.");
+        }
+
+        public void teachCourse() {
+        }
+
+        public void publishPaper() {
+        }
+
+    }
+
+
+
+
     public University(String name, String location, int foundingYear, String accreditation, int totalStudents, boolean isOpen, String deanName) {
         this.universityId = UUID.randomUUID().toString().substring(0, 8);
         this.name = name;

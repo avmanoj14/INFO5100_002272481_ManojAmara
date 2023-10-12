@@ -10,10 +10,13 @@ public class Exercise0 {
 
         University university1 = new University("Northeastern", "San Jose", 1898, "A+", 1898, true, "Mr. Erica");
         University.Student student = university1.new Student("Manoj", 23, "ms", true, 32, true, "Ms Erica");
+        University.Professor professor = university1.new Professor("Dr. Smith","Computer Science", 10, true);
         University university2 = new University("Gitam", "Hyderabad", 1995, "A+", 1898, true, "Ram");
-        University.Student student1 = university1.new Student("Alex", 23, "ms", true, 32, true, "Rattan");
+        University.Student student1 = university2.new Student("Alex", 23, "ms", true, 32, true, "Rattan");
+        University.Professor professor1 = university2.new Professor("Glen", "CS", 12, true);
         University university3 = new University("Northwestern", "CA", 1898, "A+", 1898, true, "Roy");
-        University.Student student2 = university1.new Student("Danny", 23, "ms", true, 32, true, "Aice");
+        University.Student student2 = university3.new Student("Danny", 23, "ms", true, 32, true, "Aice");
+        University.Professor professor2 = university3.new Professor("Max", "IS", 15, true);
 
         Mobile mobile1 = new Mobile("Samsung", "Galaxy S21", 6.2, 128, true, true, 799.99);
         Mobile mobile2 = new Mobile("Apple", "iPhone 13", 6.1, 256, true, true, 999.99);
@@ -53,10 +56,13 @@ public class Exercise0 {
 
         university1.admitStudent();
         student.graduate();
+        professor.conductResearch();
         university2.admitStudent();
         student1.graduate();
+        professor1.conductResearch();
         university3.admitStudent();
         student2.graduate();
+        professor2.conductResearch();
 
         mobile1.showDetails();
         mobile2.showDetails();
