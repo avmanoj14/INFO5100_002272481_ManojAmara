@@ -16,6 +16,8 @@ class Student {
         }
     }
 
+    //average quiz score of each student
+
     public double getAverageQuizScore() {
         int sum = 0;
         for (int score : quizScores) {
