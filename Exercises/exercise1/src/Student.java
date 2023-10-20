@@ -1,5 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
-
+import java.util.List;
 
 class Student {
     String name;
@@ -15,8 +16,6 @@ class Student {
             quizScores[index] = score;
         }
     }
-
-    //average quiz score of each student
 
     public double getAverageQuizScore() {
         int sum = 0;
@@ -63,29 +62,18 @@ class FullTimeStudent extends Student {
 
 
 class Session {
-    Student[] students;
+    List<Student> students;
+
 
     public Session() {
-        students = new Student[20];
+        students = new ArrayList<>();
+
     }
 
-    public void addStudent(int index,Student student) {
-        if (index >= 0 && index < 20) {
-            students[index] = student;
-        }
+    public void addStudent(Student student) {
+        students.add(student);
     }
 
-    public double calAverageQuizScore() {
-        double totalAverage = 0.0;
-        int count = 0;
-        for (Student student : students) {
-            if (student != null) {
-                totalAverage += student.getAverageQuizScore();
-                count++;
-            }
-        }
-        return totalAverage / count;
-    }
 
     public void printQuizScoresAscending() {
         for (Student student : students) {
@@ -93,6 +81,17 @@ class Session {
                 int [] quizScores = student.getQuizScores();
                 Arrays.sort(quizScores);
                 System.out.println(student.getName() + "'s quiz scores in ascending order: " + Arrays.toString(quizScores));
+            }
+        }
+    }
+
+
+    public void printIndividualQuizScores() {
+        for (Student student : students) {
+            if (student != null) {
+                int[] quizScores = student.getQuizScores();
+                Arrays.sort(quizScores);
+                System.out.println(student.getName() + "'s average quiz score: " + student.getAverageQuizScore());
             }
         }
     }
