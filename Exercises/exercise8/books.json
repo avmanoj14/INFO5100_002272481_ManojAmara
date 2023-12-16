@@ -1,0 +1,30 @@
+{
+    "BookShelf": {
+        "Book": [
+            {
+                "title": "1984",
+                "publishedYear": "1949",
+                "numberOfPages": "328",
+                "authors": {
+                    "author": "George Orwell"
+                }
+            },
+            {
+                "title": "Brave New World",
+                "publishedYear": "1932",
+                "numberOfPages": "311",
+                "authors": {
+                    "author": "Aldous Huxley"
+                }
+            },
+            {
+                "title": "The Lord of the Rings",
+                "publishedYear": "1954",
+                "numberOfPages": "1178",
+                "authors": {
+                    "author": "J.R.R. Tolkien"
+                }
+            }
+        ]
+    }
+}
