@@ -1,3 +1,9 @@
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -7,17 +13,12 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
-
 import java.io.IOException;
 import java.io.StringWriter;
 
 public class XmlParser {
   public static void main(String[] args)
-      throws ParserConfigurationException, SAXException, IOException, TransformerException {
+          throws ParserConfigurationException, IOException, SAXException, TransformerException {
     try {
       // Parse the XML document
       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -40,24 +41,22 @@ public class XmlParser {
       }
 
       // Add a new book element to the document
-      Element newBookElement = document.createElement("book");
+      Element newBookElement = document.createElement("Book");
       Element titleElement = document.createElement("title");
-      titleElement.setTextContent("Moby-Dick");
+      titleElement.setTextContent("New Book Title");
       newBookElement.appendChild(titleElement);
       Element publishedYearElement = document.createElement("publishedYear");
-      publishedYearElement.setTextContent("1851");
+      publishedYearElement.setTextContent("2023");
       newBookElement.appendChild(publishedYearElement);
       Element numberOfPagesElement = document.createElement("numberOfPages");
-      numberOfPagesElement.setTextContent("732");
+      numberOfPagesElement.setTextContent("300");
       newBookElement.appendChild(numberOfPagesElement);
       Element authorElement = document.createElement("author");
-      authorElement.setTextContent("Herman Melville");
+      authorElement.setTextContent("New Author");
       newBookElement.appendChild(authorElement);
 
-      if (books.getLength() > 0) {
-        Element booksElement = (Element) books.item(0);
-        booksElement.appendChild(newBookElement);
-      }
+      // Add the new book element to the document
+      document.getDocumentElement().appendChild(newBookElement);
 
       // Convert the Document to a String
       TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -69,13 +68,7 @@ public class XmlParser {
       // Print the XML string to the console
       System.out.println(xmlString);
 
-    } catch (ParserConfigurationException e) {
-      e.printStackTrace();
-    } catch (SAXException e) {
-      e.printStackTrace();
-    } catch (IOException e) {
-      e.printStackTrace();
-    } catch (TransformerException e) {
+    } catch (ParserConfigurationException | IOException | SAXException | TransformerException e) {
       e.printStackTrace();
     }
   }

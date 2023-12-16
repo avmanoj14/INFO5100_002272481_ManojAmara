@@ -2,11 +2,11 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import java.io.IOException;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class JsonParser {
     public static void main(String[] args) throws IOException, ParseException {
@@ -34,7 +34,6 @@ public class JsonParser {
                 String author = (String) authors.get("author");
 
                 System.out.println("Title: " + title);
-
                 System.out.println("Published Year: " + publishedYear);
                 System.out.println("Number of Pages: " + numberOfPages);
                 System.out.println("Author: " + author);
@@ -44,26 +43,27 @@ public class JsonParser {
             JSONObject newBook = new JSONObject();
 
             // Set the properties of the new book
-            newBook.put("title", "Moby-Dick");
-            newBook.put("publishedYear", "1851");
-            newBook.put("numberOfPages", "732");
+            newBook.put("title", "New Book Title");
+            newBook.put("publishedYear", "2023");
+            newBook.put("numberOfPages", "300");
 
             // Create a JSONObject for the authors property
             JSONObject newAuthors = new JSONObject();
-            newBook.put("authors", new JSONObject().put("author", "Herman Melville"));
-
-            // Add the authors JSONObject to the book JSONObject
+            newAuthors.put("author", "New Author");
             newBook.put("authors", newAuthors);
 
             // Add the new book JSONObject to the bookArray
             bookArray.add(newBook);
 
-            // Print the updated bookArray
-            // System.out.println("\nBookArray: " + bookArray.toString());
-
             // Print the updated JSON file
-            System.out.println("\nupdated JSON: " + jsonObject.toJSONString());
-        } catch (FileNotFoundException e) {
+            System.out.println("\nUpdated JSON: " + jsonObject.toJSONString());
+
+            // Write the updated JSON back to the file
+            try (FileWriter fileWriter = new FileWriter("books.json")) {
+                fileWriter.write(jsonObject.toJSONString());
+            }
+
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
     }
