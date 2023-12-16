@@ -1,0 +1,26 @@
+<BookShelf>
+    <Book>
+        <title>1984</title>
+        <publishedYear>1949</publishedYear>
+        <numberOfPages>328</numberOfPages>
+        <authors>
+            <author>George Orwell</author>
+        </authors>
+    </Book>
+    <Book>
+        <title>Brave New World</title>
+        <publishedYear>1932</publishedYear>
+        <numberOfPages>311</numberOfPages>
+        <authors>
+            <author>Aldous Huxley</author>
+        </authors>
+    </Book>
+    <Book>
+        <title>The Lord of the Rings</title>
+        <publishedYear>1954</publishedYear>
+        <numberOfPages>1178</numberOfPages>
+        <authors>
+            <author>J.R.R. Tolkien</author>
+        </authors>
+    </Book>
+</BookShelf>
