@@ -6,14 +6,25 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.HBox?>
 
-<AnchorPane fx:controller="com.example.MainController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19"
-            xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane  fx:controller="com.example.MainController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+             minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21"
+             xmlns:fx="http://javafx.com/fxml/1">
+
+
     <children>
         <ImageView fx:id="thumbnail" fitHeight="100.0" fitWidth="100.0" layoutX="60.0" layoutY="33.0"
                    pickOnBounds="true" preserveRatio="true"/>
-        <AnchorPane layoutX="229.0" layoutY="33.0" prefHeight="212.0" prefWidth="319.0">
+        <ImageView fx:id="image" fitHeight="100.0" fitWidth="100.0" layoutX="60.0" layoutY="33.0"
+                   pickOnBounds="true" preserveRatio="true"/>
+
+        <HBox fx:id="thumbnailsContainer" layoutX="60.0" layoutY="33.0">
+
+        </HBox>
+
+        <AnchorPane layoutX="370.0" layoutY="33.0" prefHeight="212.0" prefWidth="319.0">
             <children>
                 <Label fx:id="width" layoutX="170.0" layoutY="50.0" prefHeight="24.0" prefWidth="123.0"/>
                 <Text layoutX="29.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Height"/>
